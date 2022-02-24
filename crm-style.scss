@@ -8,6 +8,13 @@ body {
   margin: 0;
   padding: 0;
 }
+.page-break {
+  padding: 200px 0;
+  border: 1px 0 0 0 solid white;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+}
 .crm-campaign {
   background-color: $blue-dark-tcnj;
   width: 100%;
@@ -34,28 +41,45 @@ body {
       padding-bottom: 32px;
       font-weight: 700;
       color: $yellow-tcnj;
-      font-size: 125px;
-      line-height: 169px;
+      font-size: 110px;
+      line-height: 125px;
       margin: 0;
     }
     .video-container {
-      min-height: 637px;
       position: relative;
-      width: 100%;
+      // min-height: 637px;
+      // width: 100%;
+
+      padding-bottom: 56.25%; /* - 16:9 aspect ratio (most common) */
+      /* padding-bottom: 62.5%; - 16:10 aspect ratio */
+      /* padding-bottom: 75%; - 4:3 aspect ratio */
+      padding-top: 0px;
+      height: 0;
+      overflow: hidden;
       iframe {
         position: absolute;
         top: 0;
         left: 0;
+        // width: auto;
+        // height: 637px;
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 637px;
+        height: 100%;
         z-index: 2;
       }
     }
 
     .screen-container {
+      width: 100%;
       position: absolute;
       z-index: 3;
       cursor: pointer;
+      img {
+        width: 100%;
+      }
       #play-button {
         content: url(https://tcnj.edu/custom/icon-library/Play-button.png);
 
@@ -85,8 +109,89 @@ body {
         font-weight: 400;
       }
     }
-    .email-footer {
-      display: flex;
+    .landing-container {
+      margin: 76px 0 86px;
+      h4,
+      p {
+        text-align: left;
+        color: white;
+      }
+      h4 {
+        font-family: $alfa-font;
+        font-size: 35px;
+        line-height: 35px;
+        margin: 0;
+      }
+      p {
+        font-family: $open-sans-font;
+        font-size: 23px;
+        line-height: 35px;
+      }
+      img {
+        float: right;
+        margin-left: 44px;
+        margin-bottom: 30px;
+      }
     }
+  }
+  .cta {
+    padding-bottom: 125px;
+    h3 {
+      color: $yellow-tcnj;
+      font-family: $alfa-font;
+      font-size: 50px;
+      line-height: 90px;
+      font-weight: 400;
+      margin: 0 0 25px;
+    }
+    a {
+      max-height: 74px;
+      transition: all 0.25s;
+      padding: 0 35px;
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      background-color: #ffffff;
+      color: black;
+      border-radius: 0px;
+      outline: none;
+      flex-basis: 352px;
+      border: 2px solid white;
+      height: 74px;
+      font-size: 20px;
+      line-height: 35px;
+      font-family: $domine-font;
+      font-weight: 400;
+      &:hover {
+        background-color: $blue-dark-tcnj;
+        color: white;
+      }
+    }
+  }
+}
+.email-footer {
+  display: flex;
+  max-width: 1130px;
+  margin: 38px auto;
+  align-content: center;
+  .social-icons-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    p {
+      margin-left: 25px;
+      font-family: $open-sans-font;
+      color: $blue-dark-tcnj;
+      font-size: 16px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    margin-left: auto;
   }
 }
