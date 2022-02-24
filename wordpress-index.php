@@ -9,16 +9,26 @@
       <h1><?php single_post_title(); ?></h1>
       <?php 
          if( get_field('page_type') == 'video' ): ?>
+
+<?php
+    $video_group = get_field('video_content');
+    $video_still = $video_group['video_still'];  
+    $youtube_embed_src_code = $video_group['youtube_embed_src_code'];  
+    $video_description = $video_group['video_description'];  
+ ?>
+ 
+
+
       <div id="video-only">
          <div class="video-container">
             <div class="screen-container">
                <div id="play-button"></div>
-               <img src="https://inside.tcnj.edu/wp-content/uploads/sites/344/2022/02/Video-screencap.png" alt="" />
+               <img src="<?php echo $video_still;?>" alt="" />
             </div>
             <iframe id="embedded-video"
             width:100%;
             height: 637px;
-            src="https://www.youtube-nocookie.com/embed/4YERMJzsrzM"
+            src="<?php echo $youtube_embed_src_code;?>"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -26,25 +36,26 @@
             ></iframe>
          </div>
          <div class="video-or-gallery-description">
-            <p>Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-         </div>
+<?php echo $video_description;?>         </div>
       </div>
       <?php endif; ?>
             <?php 
          if( get_field('page_type') == 'story' ): ?>
+
+<?php
+    $story_group = get_field('story_content');
+    $story_title = $story_group['story_title'];  
+    $image = $story_group['image'];  
+    $story_content = $story_group['story_content'];  
+ ?>
+
       <div id="story-only">
          <div class="landing-container">
-            <img src="https://inside.tcnj.edu/wp-content/uploads/sites/344/2022/02/Headshot.jpg" alt="">
-            <h4>Superintendent Scott Rocco</h4>
-            <p>I come from a family of educators, several of whom also studied at The College of New Jersey. So, I always knew I wanted to go into education, and I knew TCNJ was my first-choice school. But I went as a math major, and soon realized that my passion was in history and social studies.</p>
-            <p>When I made that transition, the hardest call I had to make was to my father, to tell him I was changing the direction of my career. He said, “Listen, as a math major, you’ll get dozens of job offered a job right out of school. I think a big reason was TCNJ’s  on-campus recruitment. Eventually, I did recruiting there myself — It’s my district’s top recruitment spot.</p>
-            <p>I started my career as a teacher, became a middle school VP, an elementary principal, and then an assistant superintendent. Now, I’m now in my fifth year as superintendent of Hamilton Township Public Schools in Mercer County. It’s a very large district, with 11,000 students K through 12, and 1,800 staff. </p>
-            <p>
-               When we’re hiring, we know what we’re getting with TCNJ graduates. The college’s program for education majors is outstanding. From the classwork to partnerships with school districts, the support that TCNJ provides their student teachers both on campus and within the schools where they’re teaching is absolutely incredible. As a student in those education courses, I was exposed to all different types of schools — middle school, high school, different towns — and I got the knowledge and experience I needed to be successful.  
-            </p>
-            <p>
-               And now, in hiring, I know TCNJ candidates will be well prepared. Generally, I look for candidates who are motivated and excited to work with children of all ages, who understand how to be effective, and who know how to teach. And I know I’ll get all of that from TCNJ graduates. 
-            </p>
+             <?php if ( $story_group['image'] ): ?>
+            <img src="<?php echo $image;?>" alt="<?php echo $story_title;?>">
+            <?php endif;?>
+            <h4><?php echo $story_title;?></h4>
+            <?php echo $story_content;?>
          </div>
       </div>
             <?php endif; ?>
@@ -53,45 +64,50 @@
 
 <div id="gallery-only">
          <div id="main-slider" class="splide">
+              <div class="splide__arrows">
+		<button class="splide__arrow splide__arrow--prev">
+			<img src="https://tcnj.edu/custom/icon-library/thin-left-arrow.svg"/>
+		</button>
+		<button class="splide__arrow splide__arrow--next">
+			<img src="https://tcnj.edu/custom/icon-library/thin-right-arrow.svg"/>
+		</button>
+  </div>
             <div class="splide__track">
-               <ul class="splide__list">
-                  <li class="splide__slide">
-                     <p class="caption">Caption 1</p>
-                     <img src="https://source.unsplash.com/random/1000x1000?sig=1" />
+
+            <?php if( have_rows('gallery_content') ): ?>
+                <ul class="splide__list">
+                <?php while( have_rows('gallery_content') ): the_row(); 
+                    $image = get_sub_field('gallery_image');
+                    $caption = get_sub_field('image_caption');
+                    ?>
+                    <li class="splide__slide">
+                     <p class="caption"><?php echo $caption;?></p>
+                     <img src="<?php echo $image;?>" />
                      <div class="gradient-overlay"></div>
                   </li>
-                  <li class="splide__slide">
-                     <p class="caption">Caption 2</p>
-                     <img src="https://source.unsplash.com/random/1000x1000?sig=2" />
-                     <div class="gradient-overlay"></div>
-                  </li>
-                  <li class="splide__slide">
-                     <p class="caption">Caption 3</p>
-                     <img src="https://source.unsplash.com/random/1000x1000?sig=3" />
-                     <div class="gradient-overlay"></div>
-                  </li>
-                  <li class="splide__slide">
-                     <p class="caption">Caption 4</p>
-                     <img src="https://source.unsplash.com/random/1000x1000?sig=4" />
-                     <div class="gradient-overlay"></div>
-                  </li>
-               </ul>
+                   
+                <?php endwhile; ?>
+                </ul>
+            <?php endif; ?>
+
+
             </div>
          </div>
-         <ul id="thumbnails" class="thumbnails">
-            <li class="thumbnail">
-               <img src="https://source.unsplash.com/random/1000x1000?sig=1" />
+
+                 <?php if( have_rows('gallery_content') ): ?>
+                <ul id="thumbnails" class="thumbnails">
+                <?php while( have_rows('gallery_content') ): the_row(); 
+                    $image = get_sub_field('gallery_image');
+                    ?>
+                    <li class="thumbnail">
+               <img src="<?php echo $image;?>" />
             </li>
-            <li class="thumbnail">
-               <img src="https://source.unsplash.com/random/1000x1000?sig=2" />
-            </li>
-            <li class="thumbnail">
-               <img src="https://source.unsplash.com/random/1000x1000?sig=3" />
-            </li>
-            <li class="thumbnail">
-               <img src="https://source.unsplash.com/random/1000x1000?sig=4" />
-            </li>
-         </ul>
+                   
+                   
+                <?php endwhile; ?>
+                </ul>
+            <?php endif; ?>
+
       </div>
       <div class="video-or-gallery-description">
          <p>Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -100,7 +116,7 @@
 <?php endif; ?>
       <div class="cta">
          <h3>Join the Pride!</h3>
-         <a href="">Enroll today</a>
+         <a href="<?php the_field('cta_link');?>">Enroll today</a>
       </div>
     
     
@@ -142,6 +158,7 @@
    const videoEmbed = document.querySelector("#embedded-video");
    screenContainer.addEventListener('click', event => {
        screenContainer.style.display = "none";
+    //    videoEmbed.play();
        videoEmbed.src += "?autoplay=1";
    });
    </script>
@@ -153,7 +170,8 @@
    width: 1130,
    height: 637,
    pagination: false,
-   cover: true
+   cover: true,
+        rewind: true,
    });
    
    var thumbnails = document.getElementsByClassName("thumbnail");

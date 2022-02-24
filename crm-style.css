@@ -26,7 +26,7 @@ body {
 }
 
 .crm-campaign .inner-page #logo-top {
-  margin-top: 75px;
+  margin: 75px 0;
 }
 
 .crm-campaign .inner-page h2 {
@@ -35,12 +35,16 @@ body {
   font-size: 75px;
   line-height: 90px;
   font-weight: 400;
-  margin-bottom: 0;
+  margin: 0;
+}
+
+.crm-campaign .inner-page h4 {
+  font-weight: 400;
 }
 
 .crm-campaign .inner-page h1 {
   font-family: "Domine", serif;
-  padding-bottom: 32px;
+  padding-bottom: 76px;
   font-weight: 700;
   color: #fdd700;
   font-size: 110px;
@@ -92,8 +96,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 96px;
-  height: 96px;
+  width: 153px;
+  height: 153px;
   margin: 0 auto;
   left: 50%;
   margin-left: -50px;
@@ -102,7 +106,7 @@ body {
 }
 
 .crm-campaign .inner-page .video-or-gallery-description {
-  padding: 50px 0;
+  padding: 50px 0 87px;
 }
 
 .crm-campaign .inner-page .video-or-gallery-description p {
@@ -111,6 +115,7 @@ body {
   font-size: 23px;
   line-height: 35px;
   font-weight: 400;
+  margin: 0;
 }
 
 .crm-campaign .inner-page .landing-container {
@@ -142,6 +147,14 @@ body {
   margin-bottom: 30px;
 }
 
+.crm-campaign .inner-page #story-only .landing-container {
+  margin: 0px 0 86px;
+}
+
+.crm-campaign .inner-page #story-only .landing-container p {
+  margin: 35px 0 0;
+}
+
 .crm-campaign .inner-page #gallery-only .gradient-overlay {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(255, 255, 255, 0)), color-stop(80%, rgba(0, 0, 0, 0.465406)), to(black));
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0.465406) 80%, black 100%);
@@ -165,13 +178,26 @@ body {
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 0 20px;
+  max-width: 750px;
+}
+
+.crm-campaign .inner-page #gallery-only .splide__arrow--prev {
+  left: 74px;
+}
+
+.crm-campaign .inner-page #gallery-only .splide__arrow--next {
+  right: 74px;
 }
 
 .crm-campaign .inner-page #gallery-only .thumbnails {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1rem auto 0;
+  margin: 49px auto 22px;
   padding: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -193,8 +219,13 @@ body {
 }
 
 .crm-campaign .inner-page #gallery-only .thumbnail img {
-  width: 100%;
-  height: auto;
+  max-width: -webkit-fit-content !important;
+  max-width: -moz-fit-content !important;
+  max-width: fit-content !important;
+  width: auto;
+  height: 125px;
+  -o-object-position: -50px;
+     object-position: -50px;
 }
 
 .crm-campaign .cta {

@@ -25,7 +25,7 @@ body {
     max-width: 1130px;
     margin: 0 auto;
     #logo-top {
-      margin-top: 75px;
+      margin: 75px 0;
     }
     h2 {
       font-family: $alfa-font;
@@ -33,12 +33,15 @@ body {
       font-size: 75px;
       line-height: 90px;
       font-weight: 400;
-      margin-bottom: 0;
+      margin: 0;
+    }
+    h4 {
+      font-weight: 400;
     }
     h1 {
       font-family: $domine-font;
       //   text-transform: uppercase;
-      padding-bottom: 32px;
+      padding-bottom: 76px;
       font-weight: 700;
       color: $yellow-tcnj;
       font-size: 110px;
@@ -90,8 +93,8 @@ body {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        width: 96px;
-        height: 96px;
+        width: 153px;
+        height: 153px;
         margin: 0 auto;
         left: 50%;
         margin-left: -50px;
@@ -100,13 +103,14 @@ body {
       }
     }
     .video-or-gallery-description {
-      padding: 50px 0;
+      padding: 50px 0 87px;
       p {
         font-family: $open-sans-font;
         color: white;
         font-size: 23px;
         line-height: 35px;
         font-weight: 400;
+        margin: 0;
       }
     }
     .landing-container {
@@ -131,6 +135,14 @@ body {
         float: right;
         margin-left: 44px;
         margin-bottom: 30px;
+      }
+    }
+    #story-only {
+      .landing-container {
+        margin: 0px 0 86px;
+        p {
+          margin: 35px 0 0;
+        }
       }
     }
     #gallery-only {
@@ -159,10 +171,21 @@ body {
         right: 0;
         margin-left: auto;
         margin-right: auto;
+        font-family: $open-sans-font;
+        font-size: 20px;
+        line-height: 30px;
+        padding: 0 20px;
+        max-width: 750px;
+      }
+      .splide__arrow--prev {
+        left: 74px;
+      }
+      .splide__arrow--next {
+        right: 74px;
       }
       .thumbnails {
         display: flex;
-        margin: 1rem auto 0;
+        margin: 49px auto 22px;
         padding: 0;
         justify-content: center;
       }
@@ -182,8 +205,10 @@ body {
       }
 
       .thumbnail img {
-        width: 100%;
-        height: auto;
+        max-width: fit-content !important;
+        width: auto;
+        height: 125px;
+        object-position: -50px;
       }
     }
   }

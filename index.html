@@ -4,7 +4,7 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://tcnj.edu/custom/spring-crm-2022/crm-style.css" />
+      <link rel="stylesheet" href="./crm-style.css" />
       <!-- <link rel="stylesheet" href="crm-style.css" /> -->
           <link
       rel="stylesheet"
@@ -61,7 +61,7 @@
                />
             <h2>Inside the Pride</h2>
             <h1>Math & Stats</h1>
-            <div id="video-only">
+            <div id="story-only">
              <div class="landing-container">
                <img src="https://inside.tcnj.edu/wp-content/uploads/sites/344/2022/02/Headshot.jpg" alt="">
                <h4>Superintendent Scott Rocco</h4>
@@ -95,6 +95,14 @@ And now, in hiring, I know TCNJ candidates will be well prepared. Generally, I l
             <h1>Math & Stats</h1>
 <div id="gallery-only">
    <div id="main-slider" class="splide">
+      <div class="splide__arrows">
+		<button class="splide__arrow splide__arrow--prev">
+			<img src="https://tcnj.edu/custom/icon-library/thin-left-arrow.svg"/>
+		</button>
+		<button class="splide__arrow splide__arrow--next">
+			<img src="https://tcnj.edu/custom/icon-library/thin-right-arrow.svg"/>
+		</button>
+  </div>
       <div class="splide__track">
         <ul class="splide__list">
           <li class="splide__slide">
@@ -189,7 +197,8 @@ And now, in hiring, I know TCNJ candidates will be well prepared. Generally, I l
         width: 1130,
         height: 637,
         pagination: false,
-        cover: true
+        cover: true,
+        rewind: true,
       });
 
       var thumbnails = document.getElementsByClassName("thumbnail");
