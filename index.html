@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="crm-style.css" />
+    <title>CRM Campaign</title>
+  </head>
+  <body>
+    <div class="crm-campaign">
+      <div class="inner-page">
+        <img
+          src="https://tcnj.edu/custom/icon-library/logos/LOGO.svg"
+          alt="TCNJ"
+          id="logo-top"
+        />
+        <h2>Inside the Pride</h2>
+        <h1>Math & Stats</h1>
+        <div class="video-container">
+          <div class="screen-container">
+            <div id="play-button"></div>
+            <img src="/img/Video-screencap.png" alt="" />
+          </div>
+          <iframe id="embedded-video"
+            width:100%;
+                height: 637px;
+            src="https://www.youtube-nocookie.com/embed/4YERMJzsrzM"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div id="video-description"><p>Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+      </div>
+    </div>
+    <div class="email-footer">
+      <img
+        src="https://tcnj.edu/custom/icon-library/logos/Blue-logo.svg"
+        alt="TCNJ"
+      />
+      <div class="social-icons-container mobile-hide">
+        <img
+          src="https://tcnj.edu/custom/homepage/img/compressed/1-social-media-icon-facebook.png"
+          alt="Facebook"
+        />
+        <img
+          src="https://tcnj.edu/custom/homepage/img/compressed/2-social-media-icon-twitter.png"
+          alt="Twitter"
+        />
+        <img
+          src="https://tcnj.edu/custom/homepage/img/compressed/3-social-media-icon-linkedin.png"
+          alt="LinkedIn"
+        />
+        <img
+          src="https://tcnj.edu/custom/homepage/img/compressed/4-social-media-icon-instagram.png"
+          alt="Instagram"
+        />
+        <img
+          src="https://tcnj.edu/custom/homepage/img/compressed/5-social-media-icon-youtube.png"
+          alt="Youtube"
+        />
+      </div>
+    </div>
+    <script>
+        const screenContainer = document.querySelector(".screen-container");
+        const videoEmbed = document.querySelector("#embedded-video");
+        screenContainer.addEventListener('click', event => {
+            screenContainer.style.display = "none";
+            videoEmbed.src += "?autoplay=1";
+        });
+    </script>
+  </body>
+</html>
