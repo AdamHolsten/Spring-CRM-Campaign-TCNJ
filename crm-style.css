@@ -101,11 +101,11 @@ body {
   margin-top: -50px;
 }
 
-.crm-campaign .inner-page #video-description {
+.crm-campaign .inner-page .video-or-gallery-description {
   padding: 50px 0;
 }
 
-.crm-campaign .inner-page #video-description p {
+.crm-campaign .inner-page .video-or-gallery-description p {
   font-family: "Open Sans", sans-serif;
   color: white;
   font-size: 23px;
@@ -140,6 +140,61 @@ body {
   float: right;
   margin-left: 44px;
   margin-bottom: 30px;
+}
+
+.crm-campaign .inner-page #gallery-only .gradient-overlay {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(255, 255, 255, 0)), color-stop(80%, rgba(0, 0, 0, 0.465406)), to(black));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0.465406) 80%, black 100%);
+  height: 100%;
+  position: absolute;
+  z-index: 8;
+  width: 100%;
+  pointer-events: none;
+}
+
+.crm-campaign .inner-page #gallery-only .splide {
+  margin: 0 auto;
+}
+
+.crm-campaign .inner-page #gallery-only .caption {
+  z-index: 10;
+  position: absolute;
+  color: white;
+  bottom: 72px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.crm-campaign .inner-page #gallery-only .thumbnails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem auto 0;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.crm-campaign .inner-page #gallery-only .thumbnail {
+  width: 125px;
+  height: 125px;
+  overflow: hidden;
+  list-style: none;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.crm-campaign .inner-page #gallery-only .thumbnail.is-active {
+  opacity: 1;
+}
+
+.crm-campaign .inner-page #gallery-only .thumbnail img {
+  width: 100%;
+  height: auto;
 }
 
 .crm-campaign .cta {

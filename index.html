@@ -4,7 +4,16 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="crm-style.css" />
+      <link rel="stylesheet" href="https://tcnj.edu/custom/spring-crm-2022/crm-style.css" />
+      <!-- <link rel="stylesheet" href="crm-style.css" /> -->
+          <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.1.7/dist/css/themes/splide-skyblue.min.css"
+    />
+          <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.1.7/dist/js/splide.min.js"
+    ></script>
       <title>CRM Campaign</title>
    </head>
    <body>
@@ -21,7 +30,7 @@
                <div class="video-container">
                   <div class="screen-container">
                      <div id="play-button"></div>
-                     <img src="/img/Video-screencap.png" alt="" />
+                     <img src="https://inside.tcnj.edu/wp-content/uploads/sites/344/2022/02/Video-screencap.png" alt="" />
                   </div>
                   <iframe id="embedded-video"
                   width:100%;
@@ -33,7 +42,7 @@
                   allowfullscreen
                   ></iframe>
                </div>
-               <div id="video-description">
+               <div class="video-or-gallery-description">
                   <p>Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                </div>
             </div>
@@ -54,7 +63,7 @@
             <h1>Math & Stats</h1>
             <div id="video-only">
              <div class="landing-container">
-               <img src="./img/Headshot.jpg" alt="">
+               <img src="https://inside.tcnj.edu/wp-content/uploads/sites/344/2022/02/Headshot.jpg" alt="">
                <h4>Superintendent Scott Rocco</h4>
                <p>I come from a family of educators, several of whom also studied at The College of New Jersey. So, I always knew I wanted to go into education, and I knew TCNJ was my first-choice school. But I went as a math major, and soon realized that my passion was in history and social studies.</p>
                <p>When I made that transition, the hardest call I had to make was to my father, to tell him I was changing the direction of my career. He said, “Listen, as a math major, you’ll get dozens of job offered a job right out of school. I think a big reason was TCNJ’s  on-campus recruitment. Eventually, I did recruiting there myself — It’s my district’s top recruitment spot.
@@ -72,9 +81,70 @@ And now, in hiring, I know TCNJ candidates will be well prepared. Generally, I l
               <a href="">Enroll today</a>
             </div>
 
+
+
+<hr class="page-break"/>
+
+<!-- Carousel Page -->
+<img
+               src="https://tcnj.edu/custom/icon-library/logos/LOGO.svg"
+               alt="TCNJ"
+               id="logo-top"
+               />
+            <h2>Inside the Pride</h2>
+            <h1>Math & Stats</h1>
+<div id="gallery-only">
+   <div id="main-slider" class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+             <p class="caption">Caption 1</p>
+            <img src="https://source.unsplash.com/random/1000x1000?sig=1" />
+            <div class="gradient-overlay"></div>
+          </li>
+          <li class="splide__slide">
+             <p class="caption">Caption 2</p>
+            <img src="https://source.unsplash.com/random/1000x1000?sig=2" />
+            <div class="gradient-overlay"></div>
+          </li>
+          <li class="splide__slide">
+             <p class="caption">Caption 3</p>
+            <img src="https://source.unsplash.com/random/1000x1000?sig=3" />
+            <div class="gradient-overlay"></div>
+          </li>
+          <li class="splide__slide">
+             <p class="caption">Caption 4</p>
+            <img src="https://source.unsplash.com/random/1000x1000?sig=4" />
+            <div class="gradient-overlay"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <ul id="thumbnails" class="thumbnails">
+      <li class="thumbnail">
+        <img src="https://source.unsplash.com/random/1000x1000?sig=1" />
+      </li>
+      <li class="thumbnail">
+        <img src="https://source.unsplash.com/random/1000x1000?sig=2" />
+      </li>
+      <li class="thumbnail">
+        <img src="https://source.unsplash.com/random/1000x1000?sig=3" />
+      </li>
+      <li class="thumbnail">
+        <img src="https://source.unsplash.com/random/1000x1000?sig=4" />
+      </li>
+    </ul>
+
+</div><div class="video-or-gallery-description">
+                  <p>Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+               </div>
+               <div class="cta">
+                           <h3>Join the Pride!</h3>
+                           <a href="">Enroll today</a>
+                         </div>
          </div>
       </div>
-
 
 
       <div class="email-footer">
@@ -115,6 +185,40 @@ And now, in hiring, I know TCNJ candidates will be well prepared. Generally, I l
              screenContainer.style.display = "none";
              videoEmbed.src += "?autoplay=1";
          });
+          var splide = new Splide("#main-slider", {
+        width: 1130,
+        height: 637,
+        pagination: false,
+        cover: true
+      });
+
+      var thumbnails = document.getElementsByClassName("thumbnail");
+      var current;
+
+      for (var i = 0; i < thumbnails.length; i++) {
+        initThumbnail(thumbnails[i], i);
+      }
+
+      function initThumbnail(thumbnail, index) {
+        thumbnail.addEventListener("click", function () {
+          splide.go(index);
+        });
+      }
+
+      splide.on("mounted move", function () {
+        var thumbnail = thumbnails[splide.index];
+
+        if (thumbnail) {
+          if (current) {
+            current.classList.remove("is-active");
+          }
+
+          thumbnail.classList.add("is-active");
+          current = thumbnail;
+        }
+      });
+
+      splide.mount();
       </script>
    </body>
 </html>
