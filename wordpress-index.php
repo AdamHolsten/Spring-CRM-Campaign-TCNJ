@@ -25,15 +25,24 @@
                <div id="play-button"></div>
                <img src="<?php echo $video_still;?>" alt="" />
             </div>
+ <video
+              id="embedded-video"
+              style="display: none"
+              src="<?php echo $youtube_embed_src_code;?>"
+              controls="true"
+              class="full-video-play"
+              poster="<?php echo $video_still;?>"
+            >
+<!-- 
             <iframe id="embedded-video"
             width:100%;
             height: 637px;
-            src="<?php echo $youtube_embed_src_code;?>"
+            src=""
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            ></iframe>
+            ></iframe> -->
          </div>
          <div class="video-or-gallery-description">
 <?php echo $video_description;?>         </div>
@@ -128,39 +137,41 @@
       alt="TCNJ"
       />
    <div class="social-icons-container mobile-hide">
-      <img
+      <a href="http://www.facebook.com/tcnjlions" target="_blank"><img
          src="https://tcnj.edu/custom/homepage/img/compressed/1-social-media-icon-facebook.png"
          alt="Facebook"
-         />
-      <img
+         /></a>
+      <a href="http://twitter.com/tcnj" target="_blank"><img
          src="https://tcnj.edu/custom/homepage/img/compressed/2-social-media-icon-twitter.png"
          alt="Twitter"
-         />
-      <img
+         /></a>
+      <a href="https://www.linkedin.com/school/the-college-of-new-jersey/" target="_blank"><img
          src="https://tcnj.edu/custom/homepage/img/compressed/3-social-media-icon-linkedin.png"
          alt="LinkedIn"
-         />
-      <img
+         /></a>
+      <a href="http://instagram.com/tcnj_official" target="_blank"><img
          src="https://tcnj.edu/custom/homepage/img/compressed/4-social-media-icon-instagram.png"
          alt="Instagram"
-         />
-      <img
+         /></a>
+      <a href="http://www.youtube.com/tcnjvideo" target="_blank"><img
          src="https://tcnj.edu/custom/homepage/img/compressed/5-social-media-icon-youtube.png"
          alt="Youtube"
-         />
+         /></a>
       <p>All Rights Reserved ©2022</p>
    </div>
 </div>
       <?php 
          if( get_field('page_type') == 'video' ): ?>
 <script>
-   const screenContainer = document.querySelector(".screen-container");
-   const videoEmbed = document.querySelector("#embedded-video");
-   screenContainer.addEventListener('click', event => {
-       screenContainer.style.display = "none";
-    //    videoEmbed.play();
-       videoEmbed.src += "?autoplay=1";
-   });
+    const screenContainer = document.querySelector(".screen-container");
+      const videoEmbed = document.querySelector("#embedded-video");
+      function handleVideoPlay() {
+        screenContainer.style.display = "none";
+        videoEmbed.style.display = "block";
+        videoEmbed.play();
+      }
+      screenContainer.addEventListener("touchstart", handleVideoPlay);
+      screenContainer.addEventListener("click", handleVideoPlay);
    </script>
 <?php endif; ?>
       <?php 

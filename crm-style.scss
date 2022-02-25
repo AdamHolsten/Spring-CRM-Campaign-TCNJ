@@ -61,7 +61,9 @@ body {
       padding-top: 0px;
       height: 0;
       overflow: hidden;
-      iframe {
+      iframe,
+      video {
+        background-color: black;
         position: absolute;
         top: 0;
         left: 0;
@@ -294,33 +296,56 @@ body {
 }
 @media screen and (max-width: 800px) {
   .crm-campaign {
+    .splide__list {
+      max-height: 400px;
+    }
     .inner-page {
+      #logo-top {
+        margin: 50px 0;
+      }
       .screen-container {
         #play-button {
           width: 60px;
           height: 60px;
         }
       }
-      #gallery-only .splide__arrow--next {
-        img {
-          width: 25px;
+      #gallery-only {
+        .thumbnail {
+          width: 70px;
+          height: 70px;
+          img {
+            object-position: -80px;
+          }
         }
-        right: 10px;
-      }
-      #gallery-only .splide__arrow--prev {
-        img {
-          width: 25px;
+        .splide__arrow--next {
+          img {
+            width: 25px;
+          }
+          right: 10px;
         }
-        left: 10px;
+        .splide__arrow--prev {
+          img {
+            width: 25px;
+          }
+          left: 10px;
+        }
+        .caption {
+          top: 270px;
+          font-size: 16px;
+          line-height: 22px;
+        }
+        .gradient-overlay {
+          max-height: 400px;
+        }
       }
       h1 {
-        font-size: 60px;
-        line-height: 60px;
+        font-size: 50px;
+        line-height: 50px;
         margin-top: 15px;
       }
       h2 {
-        font-size: 50px;
-        line-height: 50px;
+        font-size: 40px;
+        line-height: 40px;
       }
       // width: 100%;
       .landing-container {
@@ -355,8 +380,24 @@ body {
       flex-wrap: wrap;
       p {
         margin-left: 0;
+        padding-top: 10px;
       }
       img {
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .crm-campaign {
+    .inner-page {
+      #gallery-only {
+        .thumbnail {
+          width: 50px;
+          height: 50px;
+          img {
+            object-position: -90px -5px;
+          }
+        }
       }
     }
   }
