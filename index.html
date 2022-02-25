@@ -189,10 +189,16 @@ And now, in hiring, I know TCNJ candidates will be well prepared. Generally, I l
       <script>
          const screenContainer = document.querySelector(".screen-container");
          const videoEmbed = document.querySelector("#embedded-video");
-         screenContainer.addEventListener('click', event => {
-             screenContainer.style.display = "none";
+         function handleVideoPlay(){
+ screenContainer.style.display = "none";
              videoEmbed.src += "?autoplay=1";
-         });
+         };
+         screenContainer.addEventListener('touchstart', handleVideoPlay);
+         screenContainer.addEventListener('click', handleVideoPlay);
+         // screenContainer.addEventListener('click', event => {
+         //     screenContainer.style.display = "none";
+         //     videoEmbed.src += "?autoplay=1";
+         // });
           var splide = new Splide("#main-slider", {
         width: 1130,
         height: 637,

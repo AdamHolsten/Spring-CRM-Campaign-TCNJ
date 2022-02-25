@@ -26,6 +26,8 @@ body {
     margin: 0 auto;
     #logo-top {
       margin: 75px 0;
+      max-width: 365px;
+      width: 100%;
     }
     h2 {
       font-family: $alfa-font;
@@ -86,20 +88,18 @@ body {
       #play-button {
         content: url(https://tcnj.edu/custom/icon-library/Play-button.png);
 
-        position: absolute;
         text-align: center;
         z-index: 11;
         pointer-events: none;
-        display: -webkit-box;
-        display: -ms-flexbox;
+
         display: flex;
         width: 153px;
         height: 153px;
         margin: 0 auto;
-        left: 50%;
-        margin-left: -50px;
+        position: absolute;
         top: 50%;
-        margin-top: -50px;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
     .video-or-gallery-description {
@@ -271,5 +271,93 @@ body {
       height: auto;
     }
     margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .crm-campaign {
+    .inner-page {
+      margin: 0 20px;
+      width: calc(100% - 40px);
+    }
+  }
+  .email-footer {
+    margin: 20 px20px;
+
+    .social-icons-container {
+      p {
+      }
+      img {
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .crm-campaign {
+    .inner-page {
+      .screen-container {
+        #play-button {
+          width: 60px;
+          height: 60px;
+        }
+      }
+      #gallery-only .splide__arrow--next {
+        img {
+          width: 25px;
+        }
+        right: 10px;
+      }
+      #gallery-only .splide__arrow--prev {
+        img {
+          width: 25px;
+        }
+        left: 10px;
+      }
+      h1 {
+        font-size: 60px;
+        line-height: 60px;
+        margin-top: 15px;
+      }
+      h2 {
+        font-size: 50px;
+        line-height: 50px;
+      }
+      // width: 100%;
+      .landing-container {
+        h4 {
+          font-size: 30px;
+          line-height: 30px;
+        }
+        p {
+          margin: 30px 0 0;
+          line-height: 30px;
+        }
+        img {
+          float: none;
+          width: 100%;
+          max-width: 450px;
+          margin-left: 0;
+        }
+      }
+    }
+    .cta h3 {
+      font-size: 45px;
+      line-height: 50px;
+    }
+  }
+  .email-footer {
+    padding: 0 20px;
+    flex-direction: column;
+    .social-icons-container {
+      margin-top: 20px;
+      margin-right: auto;
+      gap: 10px;
+      flex-wrap: wrap;
+      p {
+        margin-left: 0;
+      }
+      img {
+      }
+    }
   }
 }
